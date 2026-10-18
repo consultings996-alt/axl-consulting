@@ -9,8 +9,8 @@
           e integraciones entre las herramientas que ya usas.
         </p>
         <div class="actions">
-          <router-link to="/#cotizar" class="btn btn-ice">Cotizar un proyecto</router-link>
-          <router-link to="/#servicios" class="btn btn-ghost">Ver servicios</router-link>
+          <router-link to="/cotizar" class="btn btn-ice">Cotizar un proyecto</router-link>
+          <router-link to="/servicios" class="btn btn-ghost">Ver servicios</router-link>
         </div>
       </div>
 

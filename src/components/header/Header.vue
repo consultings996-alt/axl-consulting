@@ -39,6 +39,7 @@
 </template>
 
 <script setup lang="ts">
+import { sectionForPath } from '@/data/sections'
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import menu, { contactLink } from '@/data/menu'
@@ -48,7 +49,8 @@ const DESKTOP_BREAKPOINT = 980
 const route = useRoute()
 
 // Los enlaces a secciones del inicio (/#...) no se marcan como página activa
-const isActive = (link: string) => !link.includes('#') && route.path === link
+// Las secciones del inicio (/servicios, etc.) no se marcan como activas: son posiciones dentro de una página
+const isActive = (link: string) => !sectionForPath(link) && route.path === link
 const isOpen = ref(false)
 const scrolled = ref(false)
 

@@ -18,7 +18,7 @@
         <aside class="panel on-dark">
           <h3>Mientras tanto, pregúntanos directo</h3>
           <p>Si tienes una duda sobre tu proyecto o tu operación, con gusto la platicamos.</p>
-          <router-link to="/#cotizar" class="btn btn-ice">Hablar con un especialista</router-link>
+          <router-link to="/cotizar" class="btn btn-ice">Hablar con un especialista</router-link>
         </aside>
       </div>
     </section>

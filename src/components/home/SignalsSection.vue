@@ -7,13 +7,13 @@
           Estas situaciones cuestan horas de trabajo, errores y oportunidades cada semana.
           Todas tienen solución con la tecnología correcta.
         </p>
-        <router-link to="/#cotizar" class="btn btn-primary">Cuéntanos tu caso</router-link>
+        <router-link to="/cotizar" class="btn btn-primary">Cuéntanos tu caso</router-link>
       </div>
 
       <ul class="list">
         <li v-for="signal in items" :key="signal.text" class="item">
           <p class="text">{{ signal.text }}</p>
-          <router-link :to="`/?servicio=${signal.service.slug}#cotizar`" class="solution">
+          <router-link :to="quoteLink(signal.service.slug)" class="solution">
             <ServiceIcon :name="signal.service.icon" class="solution-icon" />
             <span>Lo resolvemos con <strong>{{ signal.service.shortTitle }}</strong></span>
           </router-link>
@@ -24,6 +24,7 @@
 </template>
 
 <script setup lang="ts">
+import { quoteLink } from '@/data/sections'
 import { signals } from '@/data/signals'
 import { serviceBySlug } from '@/data/services'
 import ServiceIcon from '@/components/ServiceIcon.vue'

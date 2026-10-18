@@ -27,7 +27,7 @@
           <h2 id="footer-services">Servicios</h2>
           <ul>
             <li v-for="service in services" :key="service.id">
-              <router-link :to="`/?servicio=${service.slug}#cotizar`">{{ service.shortTitle }}</router-link>
+              <router-link :to="quoteLink(service.slug)">{{ service.shortTitle }}</router-link>
             </li>
           </ul>
         </nav>
@@ -54,6 +54,7 @@
 </template>
 
 <script setup lang="ts">
+import { quoteLink } from '@/data/sections'
 import { company, socialLinks } from '@/data/company'
 import services from '@/data/services'
 import menu from '@/data/menu'

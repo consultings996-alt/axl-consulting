@@ -13,7 +13,7 @@
           </span>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
-          <router-link :to="`/?servicio=${service.slug}#cotizar`" class="quote-link">
+          <router-link :to="quoteLink(service.slug)" class="quote-link">
             Cotizar este servicio
           </router-link>
         </li>
@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { quoteLink } from '@/data/sections'
 import services from '@/data/services'
 import ServiceIcon from '@/components/ServiceIcon.vue'
 </script>

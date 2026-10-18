@@ -26,7 +26,7 @@
             </div>
           </li>
         </ul>
-        <router-link to="/#cotizar" class="btn btn-ice">Agendar una llamada</router-link>
+        <router-link to="/cotizar" class="btn btn-ice">Agendar una llamada</router-link>
       </aside>
     </div>
   </section>

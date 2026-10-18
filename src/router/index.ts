@@ -9,18 +9,25 @@ import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
 import Terms from "@/views/Terms.vue";
 import NotFound from "@/views/NotFound.vue";
 import { hasProjects } from "@/data/projects";
+import { homeSections, sectionForPath } from "@/data/sections";
 
 // Las vistas se importan directamente (no lazy): el sitio es pequeño y así
 // cada página prerenderizada trae su CSS desde el inicio, sin parpadeos.
 const routes: RouteRecordRaw[] = [
     { path: "/", name: "Home", component: Home },
+    // URLs limpias para las secciones del inicio: muestran la misma página y bajan a la sección
+    ...Object.values(homeSections).map((section) => ({
+        path: section.path,
+        name: `Home:${section.id}`,
+        component: Home
+    })),
     { path: "/about", name: "About", component: About },
     {
         path: "/projects",
         name: "Projects",
         component: Projects,
         // Sin proyectos publicados, la página no se muestra
-        beforeEnter: () => (hasProjects ? true : { path: "/", hash: "#como-trabajamos" })
+        beforeEnter: () => (hasProjects ? true : homeSections.comoTrabajamos.path)
     },
     { path: "/contact", name: "Contact", component: Contact },
     { path: "/insights", name: "Insights", component: Insights },
@@ -35,6 +42,9 @@ const routes: RouteRecordRaw[] = [
 /** Páginas que se generan como HTML estático en el build (prerender) */
 export const prerenderRoutes: { path: string; sitemap: boolean }[] = [
     { path: "/", sitemap: true },
+    // Se generan para que funcionen al abrirlas directo, pero no van al sitemap:
+    // para Google son la misma página que "/" (su canonical apunta ahí)
+    ...Object.values(homeSections).map((section) => ({ path: section.path, sitemap: false })),
     { path: "/about", sitemap: true },
     ...(hasProjects ? [{ path: "/projects", sitemap: true }] : []),
     { path: "/contact", sitemap: true },
@@ -44,14 +54,29 @@ export const prerenderRoutes: { path: string; sitemap: boolean }[] = [
     { path: "/terms", sitemap: false }
 ]
 
+/** Espacio para que el encabezado fijo no tape el título de la sección */
+export const SCROLL_OFFSET = 120
+
+/** Desplazamiento suave, salvo que el usuario pidió reducir animaciones */
+export const scrollMode = (smooth: boolean): ScrollBehavior =>
+    smooth && !window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "smooth" : "auto"
+
 /** Crea el router; el historial cambia entre navegador (cliente) y memoria (prerender) */
 export function createAppRouter(history: RouterHistory) {
     return createRouter({
         history,
         routes,
-        scrollBehavior(to, _from, savedPosition) {
+        async scrollBehavior(to, from, savedPosition) {
             if (savedPosition) return savedPosition
-            if (to.hash) return { el: to.hash, top: 120, behavior: "smooth" }
+            const section = sectionForPath(to.path)
+            if (section) {
+                // Al abrir la URL directo, espera a las fuentes para que el texto no mueva la posición
+                if (from.matched.length === 0) await document.fonts?.ready
+                // Desplazamiento suave si ya estamos en el inicio; directo si venimos de otra página
+                const fromHome = from.matched[0]?.components?.default === Home
+                return { el: `#${section.id}`, top: SCROLL_OFFSET, behavior: scrollMode(fromHome) }
+            }
+            if (to.hash) return { el: to.hash, top: SCROLL_OFFSET, behavior: scrollMode(true) }
             return { top: 0 }
         }
     })

@@ -61,7 +61,7 @@
         </ul>
         <div class="cta">
           <p>¿Quieres trabajar con nosotros en tu próximo proyecto?</p>
-          <router-link to="/#cotizar" class="btn btn-primary">Cotizar un proyecto</router-link>
+          <router-link to="/cotizar" class="btn btn-primary">Cotizar un proyecto</router-link>
         </div>
       </div>
     </section>

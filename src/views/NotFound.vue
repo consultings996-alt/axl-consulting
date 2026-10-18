@@ -14,7 +14,7 @@
       <p class="lead">Puede que el enlace esté mal escrito o que la página se haya movido.</p>
       <div class="actions">
         <router-link to="/" class="btn btn-ice">Ir al inicio</router-link>
-        <router-link to="/#cotizar" class="btn btn-ghost">Cotizar un proyecto</router-link>
+        <router-link to="/cotizar" class="btn btn-ghost">Cotizar un proyecto</router-link>
       </div>
     </div>
   </section>

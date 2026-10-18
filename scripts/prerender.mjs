@@ -46,10 +46,10 @@ if (!hasProjects) {
   await fs.writeFile(
     path.join(dist, 'projects.html'),
     `<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="robots" content="noindex">` +
-      `<meta http-equiv="refresh" content="0; url=/#como-trabajamos"><link rel="canonical" href="${SITE_URL}/">` +
-      `<title>A.X.L</title></head><body><a href="/#como-trabajamos">Ir a A.X.L</a></body></html>\n`
+      `<meta http-equiv="refresh" content="0; url=/como-trabajamos"><link rel="canonical" href="${SITE_URL}/">` +
+      `<title>A.X.L</title></head><body><a href="/como-trabajamos">Ir a A.X.L</a></body></html>\n`
   )
-  console.log('  redirect   /projects    → /#como-trabajamos (sin proyectos aún)')
+  console.log('  redirect   /projects    → /como-trabajamos (sin proyectos aún)')
 }
 
 const today = new Date().toISOString().slice(0, 10)
