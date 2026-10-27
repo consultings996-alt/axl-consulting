@@ -5,6 +5,7 @@
   <AboutSection />
   <ProjectsSection v-if="hasProjects" />
   <ProcessSection />
+  <ProfilesSection />
   <QuoteSection />
 </template>
 
@@ -16,6 +17,7 @@ import AboutSection from '@/components/home/AboutSection.vue'
 import ServicesSection from '@/components/home/ServicesSection.vue'
 import ProjectsSection from '@/components/home/ProjectsSection.vue'
 import ProcessSection from '@/components/home/ProcessSection.vue'
+import ProfilesSection from '@/components/home/ProfilesSection.vue'
 import QuoteSection from '@/components/home/QuoteSection.vue'
 import { hasProjects } from '@/data/projects'
 import { useHead } from '@unhead/vue'

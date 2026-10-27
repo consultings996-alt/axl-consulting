@@ -115,7 +115,7 @@ import { reactive, ref, watch, nextTick, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import services from '@/data/services'
 import { company, social } from '@/data/company'
-import { OTHER_SERVICE, timelineOptions, budgetOptions } from '@/data/quote'
+import { OTHER_SERVICE, PUNCTUAL_SERVICE, timelineOptions, budgetOptions } from '@/data/quote'
 
 const CONTACT_ENDPOINT = '/api/contact'
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -123,6 +123,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const whatsapp = social('whatsapp')
 const serviceOptions = [
   ...services.map((s) => ({ value: s.slug, label: s.shortTitle })),
+  PUNCTUAL_SERVICE,
   { value: OTHER_SERVICE, label: 'Otro / no estoy seguro' }
 ]
 

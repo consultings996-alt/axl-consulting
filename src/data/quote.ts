@@ -2,6 +2,9 @@
 
 export const OTHER_SERVICE = 'otro'
 
+/** Para clientes que solo necesitan una funcionalidad o un ajuste, no un proyecto completo */
+export const PUNCTUAL_SERVICE = { value: 'funcionalidad-puntual', label: 'Funcionalidad o ajuste puntual' }
+
 export const timelineOptions = [
   'Lo antes posible',
   'En 1 a 3 meses',

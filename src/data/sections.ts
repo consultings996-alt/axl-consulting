@@ -11,6 +11,7 @@ export interface HomeSection {
 export const homeSections = {
   servicios: { path: '/servicios', id: 'servicios' },
   comoTrabajamos: { path: '/como-trabajamos', id: 'como-trabajamos' },
+  perfiles: { path: '/perfiles', id: 'perfiles' },
   cotizar: { path: '/cotizar', id: 'cotizar' }
 } satisfies Record<string, HomeSection>
 
