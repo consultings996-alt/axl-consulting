@@ -3,7 +3,9 @@
     <div class="container">
       <div class="grid">
         <div class="brand">
-          <img :src="logo" alt="A.X.L – Advanced eXponential Logic" width="122" height="48" />
+          <router-link to="/" class="home-link" aria-label="A.X.L – Ir al inicio">
+            <img :src="logo" alt="" width="122" height="48" />
+          </router-link>
           <p>Desarrollo de software a medida, integraciones y automatización para empresas en México.</p>
           <ul class="social">
             <li v-for="link in footerSocial" :key="link.id">
@@ -15,11 +17,9 @@
         <nav aria-labelledby="footer-nav">
           <h2 id="footer-nav">Navegación</h2>
           <ul>
-            <li><router-link to="/">Inicio</router-link></li>
-            <li v-for="item in menu" :key="item.label">
+            <li v-for="item in footerMenu" :key="item.label">
               <router-link :to="item.link">{{ item.label }}</router-link>
             </li>
-            <li><router-link to="/contact">Contacto</router-link></li>
           </ul>
         </nav>
 
@@ -37,6 +37,7 @@
           <ul>
             <li><a :href="`mailto:${company.email}`">{{ company.email }}</a></li>
             <li><a :href="company.phone.href">{{ company.phone.display }}</a></li>
+            <li><a :href="whatsapp.url" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             <li class="plain">{{ company.location }}</li>
           </ul>
         </div>
@@ -54,13 +55,21 @@
 </template>
 
 <script setup lang="ts">
-import { quoteLink } from '@/data/sections'
-import { company, socialLinks } from '@/data/company'
+import { homeSections, quoteLink } from '@/data/sections'
+import { company, social, socialLinks } from '@/data/company'
 import services from '@/data/services'
 import menu from '@/data/menu'
 import logo from '@/assets/brand/logo-axl.webp'
 
 const footerSocial = socialLinks.filter((s) => s.id !== 'whatsapp')
+const whatsapp = social('whatsapp')
+
+// Mismo menú del encabezado, sin "Servicios" (ya tiene su propia columna) y con "Perfiles" después de "Cómo trabajamos".
+// "Inicio" y "Contacto" no se repiten: el logo lleva al inicio y la columna Contacto ya tiene los datos.
+const perfiles = { label: 'Perfiles', link: homeSections.perfiles.path }
+const footerMenu = menu
+  .filter((item) => item.link !== homeSections.servicios.path)
+  .flatMap((item) => (item.link === homeSections.comoTrabajamos.path ? [item, perfiles] : [item]))
 const year = new Date().getFullYear()
 </script>
 
@@ -77,6 +86,11 @@ const year = new Date().getFullYear()
   grid-template-columns: 1.6fr 1fr 1.1fr 1.2fr;
   gap: 48px 40px;
   padding-bottom: 56px;
+}
+
+.home-link {
+  display: inline-block;
+  border-radius: var(--radius-sm);
 }
 
 .brand img {
