@@ -66,17 +66,8 @@ const filteredProjects = computed(() =>
 
 <style scoped>
 .projects-page {
-  background-color: var(--color-surface-alt);
+  background-color: var(--paper);
   min-height: 100vh;
-}
-
-
-
-
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .content-wrapper {
@@ -94,19 +85,19 @@ const filteredProjects = computed(() =>
 
 .filter-btn {
   background: #ffffff;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--line);
   padding: 10px 24px;
   border-radius: var(--radius-pill);
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .filter-btn:hover {
-  background: var(--color-surface-muted);
-  color: var(--color-text-body);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .filter-btn.active {
@@ -124,7 +115,7 @@ const filteredProjects = computed(() =>
 .empty-state {
   text-align: center;
   padding: 40px;
-  color: var(--color-text-soft);
+  color: var(--muted);
 }
 
 /* Transitions */

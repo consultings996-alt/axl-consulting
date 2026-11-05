@@ -46,30 +46,13 @@
 import { usePageMeta } from '@/composables/usePageMeta'
 import PageHero from '@/components/PageHero.vue'
 import { company } from '@/data/company'
+import { careerBenefits as benefits, jobOpenings as jobs, applyHref } from '@/data/careers'
 
 usePageMeta({
   title: 'Carreras',
   description: 'Únete al equipo de A.X.L – Advanced eXponential Logic. Descubre nuestras vacantes y crece profesionalmente con nosotros.',
   path: '/careers'
 })
-
-const benefits = [
-  { title: 'Crecimiento', description: 'Planes de carrera y capacitación constante.' },
-  { title: 'Trabajo remoto', description: 'Trabaja desde donde te sientas más productivo.' },
-  { title: 'Bienestar', description: 'Seguro médico y días de salud mental.' }
-]
-
-const jobs = [
-  { id: 1, title: 'Backend Engineering', type: 'Por proyecto / híbrido', location: 'Remoto' },
-  { id: 2, title: 'Frontend Engineering', type: 'Por proyecto / híbrido', location: 'Remoto' },
-  { id: 3, title: 'Arquitectura Cloud', type: 'Por proyecto / híbrido', location: 'Remoto' },
-  { id: 4, title: 'DevOps', type: 'Por proyecto / híbrido', location: 'Remoto' },
-  { id: 5, title: 'Project Management', type: 'Por proyecto / híbrido', location: 'Remoto' },
-  { id: 6, title: 'Ventas tecnológicas', type: 'Por proyecto / híbrido', location: 'Remoto' }
-]
-
-const applyHref = (title: string) =>
-  `mailto:${company.email}?subject=${encodeURIComponent(`Aplicación para ${title}`)}`
 </script>
 
 <style scoped>

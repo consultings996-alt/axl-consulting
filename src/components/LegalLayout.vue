@@ -25,7 +25,7 @@ defineProps<{ title: string; updated?: string }>()
 
 .prose {
   max-width: 68ch;
-  color: var(--color-text-body);
+  color: var(--ink);
   font-size: var(--text-base);
   line-height: 1.75;
 }

@@ -54,7 +54,7 @@ useHead({
             itemOffered: { '@type': 'Service', name: s.title, description: s.description }
           }))
         }
-      })
+      }).replace(/</g, '\\u003c')
     }
   ]
 })

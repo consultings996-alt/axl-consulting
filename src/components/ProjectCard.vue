@@ -35,8 +35,8 @@ const hasLink = computed(() => Boolean(props.project.link) && props.project.link
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color 0.2s ease;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: #ffffff;
+  border: 1px solid var(--line);
 }
 
 .project-card:hover {
@@ -77,8 +77,8 @@ const hasLink = computed(() => Boolean(props.project.link) && props.project.link
 }
 
 .view-btn {
-  background: var(--color-white);
-  color: var(--color-text-strong);
+  background: #ffffff;
+  color: var(--ink);
   padding: 12px 24px;
   border-radius: var(--radius-pill);
   font-weight: 600;
@@ -104,8 +104,8 @@ const hasLink = computed(() => Boolean(props.project.link) && props.project.link
 }
 
 .tag {
-  background: var(--color-surface-muted);
-  color: var(--color-text-secondary);
+  background: var(--paper);
+  color: var(--muted);
   padding: 4px 12px;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
@@ -115,12 +115,12 @@ const hasLink = computed(() => Boolean(props.project.link) && props.project.link
 h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--ink);
   margin-bottom: 12px;
 }
 
 p {
-  color: var(--color-text-muted);
+  color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;

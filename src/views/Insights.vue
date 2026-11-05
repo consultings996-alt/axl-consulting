@@ -28,19 +28,13 @@
 <script setup lang="ts">
 import { usePageMeta } from '@/composables/usePageMeta'
 import PageHero from '@/components/PageHero.vue'
+import { insightTopics as topics } from '@/data/insights'
 
 usePageMeta({
   title: 'Insights',
   description: 'Artículos sobre arquitectura de software, automatización y transformación digital de A.X.L.',
   path: '/insights'
 })
-
-const topics = [
-  'Guías de arquitectura, nube y escalabilidad',
-  'Casos de estudio de proyectos reales',
-  'Automatización e integraciones en la práctica',
-  'Noticias y alianzas de A.X.L'
-]
 </script>
 
 <style scoped>

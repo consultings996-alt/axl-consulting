@@ -33,26 +33,7 @@
 </template>
 
 <script setup lang="ts">
-const tags = ['Ingeniería de excelencia', 'Servicios nearshore', 'Consultoría especializada', 'Innovación con IA']
-
-const highlights = [
-  {
-    title: 'Ingeniería con experiencia real',
-    description: 'Equipo con experiencia en sistemas empresariales, gobierno, finanzas e inteligencia artificial.'
-  },
-  {
-    title: 'Comunicación directa',
-    description: 'Hablas con quien diseña y construye tu solución, sin intermediarios.'
-  },
-  {
-    title: 'Entregas cortas y visibles',
-    description: 'Avances funcionales cada pocas semanas, no solo al final del proyecto.'
-  },
-  {
-    title: 'Acompañamiento después del lanzamiento',
-    description: 'Soporte, mejoras y evolución de tu sistema cuando ya está en producción.'
-  }
-]
+import { aboutTags as tags, aboutHighlights as highlights } from '@/data/about'
 </script>
 
 <style scoped>
