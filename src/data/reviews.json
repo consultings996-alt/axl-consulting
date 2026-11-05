@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "whyHired": "Nuestro ERP no se comunicaba con el e-commerce y capturábamos más de 300 pedidos diarios a mano.",
+    "quote": "A.X.L conectó ambos sistemas sin detener la operación ni un solo día. Desde la primera semana dejaron claro el alcance y cumplieron cada entrega.",
+    "outcome": "0 capturas manuales · Inventario en tiempo real",
+    "role": "Director de Operaciones",
+    "industry": "Distribuidora Industrial · Monterrey",
+    "serviceSlug": "integraciones"
+  },
+  {
+    "id": 2,
+    "whyHired": "Venimos de una agencia que tardaba meses en entregar cambios simples y nunca hablábamos con quien programaba.",
+    "quote": "Aquí tratamos directo con ingenieros senior que entienden el negocio. En seis semanas sacamos a producción el módulo que llevaba medio año estancado.",
+    "outcome": "Lanzamiento en 6 semanas · Trato técnico directo",
+    "role": "Gerente de Producto Digital",
+    "industry": "Servicios Financieros · CDMX",
+    "serviceSlug": "software-a-medida"
+  },
+  {
+    "id": 3,
+    "whyHired": "Nuestra plataforma se caía cada fin de quincena cuando subía el tráfico de clientes.",
+    "quote": "Rediseñaron la arquitectura hacia microservicios en la nube y automatizaron los despliegues. Pasamos nuestra temporada más alta sin una sola interrupción.",
+    "outcome": "99.98% disponibilidad en picos de demanda",
+    "role": "CTO",
+    "industry": "Fintech de Pagos · Guadalajara",
+    "serviceSlug": "microservicios-cloud"
+  },
+  {
+    "id": 4,
+    "whyHired": "Operábamos toda la logística con hojas de cálculo sueltas y perdíamos trazabilidad de las entregas.",
+    "quote": "Construyeron una plataforma web y móvil a la medida de nuestros operadores en ruta. Hoy sabemos en segundos dónde está cada unidad y cada evidencia.",
+    "outcome": "-65% en incidencias de ruta y conciliación",
+    "role": "Subdirector de Logística",
+    "industry": "Transporte y Última Milla · Querétaro",
+    "serviceSlug": "web-movil"
+  },
+  {
+    "id": 5,
+    "whyHired": "El cierre mensual de comisiones y facturación nos tomaba cuatro días completos de trabajo repetitivo.",
+    "quote": "Automatizaron las reglas de validación y el cruce con bancos. Lo que antes consumía a tres analistas durante días hoy queda listo en minutos.",
+    "outcome": "De 4 días a 15 minutos en cierres mensuales",
+    "role": "Directora de Administración y Finanzas",
+    "industry": "Grupo Comercial · CDMX",
+    "serviceSlug": "automatizacion"
+  },
+  {
+    "id": 6,
+    "whyHired": "Sabíamos que debíamos modernizar nuestros sistemas, pero no sabíamos por dónde empezar sin arriesgar la operación.",
+    "quote": "No llegaron a vendernos código por vender. Hicieron un diagnóstico honesto, priorizaron lo que daba retorno rápido y armaron una hoja de ruta realista.",
+    "outcome": "Hoja de ruta por etapas · ROI desde el trimestre 1",
+    "role": "Director General",
+    "industry": "Manufactura de Autopartes · Bajío",
+    "serviceSlug": "transformacion-digital"
+  },
+  {
+    "id": 7,
+    "whyHired": "Urgía integrar un desarrollador backend senior a nuestro equipo sin pasar tres meses reclutando.",
+    "quote": "El especialista que se sumó entendió nuestra arquitectura en días y aportó buenas prácticas desde el primer sprint. Se sintió parte de casa de inmediato.",
+    "outcome": "Onboarding en 5 días · Velocidad de sprint +40%",
+    "role": "Engineering Manager",
+    "industry": "SaaS B2B · Remoto LATAM",
+    "serviceSlug": "software-a-medida"
+  },
+  {
+    "id": 8,
+    "whyHired": "Nuestros clientes corporativos nos pedían un portal de autogestión para descargar pólizas y estados de cuenta.",
+    "quote": "Diseñaron una experiencia limpia, rápida y segura. Nuestro equipo de atención dejó de recibir cientos de correos pidiendo documentos básicos.",
+    "outcome": "-58% en tickets de soporte operativo",
+    "role": "Gerente de Experiencia al Cliente",
+    "industry": "Correduría de Seguros · CDMX",
+    "serviceSlug": "web-movil"
+  },
+  {
+    "id": 9,
+    "whyHired": "Necesitábamos conectar nuestro CRM con WhatsApp, pasarela de pagos y facturación automática CFDI 4.0.",
+    "quote": "Dejaron todo el flujo orquestado mediante APIs con manejo de reintentos y alertas. Ahora el cliente paga y recibe su factura sin intervención humana.",
+    "outcome": "Cobro y timbrado 100% desatendido",
+    "role": "Head of Growth",
+    "industry": "Healthtech · Monterrey",
+    "serviceSlug": "integraciones"
+  },
+  {
+    "id": 10,
+    "whyHired": "Un software comercial enlatado nos obligaba a cambiar nuestra forma de trabajar y cobraba licencias por usuario excesivas.",
+    "quote": "Desarrollar nuestro propio sistema con A.X.L se pagó solo en menos de un año en puro ahorro de licencias, y además funciona exactamente como operamos.",
+    "outcome": "Ahorro anual de licencias · Propiedad total del código",
+    "role": "Socio Fundador",
+    "industry": "Firma de Ingeniería y Construcción · Puebla",
+    "serviceSlug": "software-a-medida"
+  },
+  {
+    "id": 11,
+    "whyHired": "Cada vez que subíamos una actualización a producción rompíamos otra parte del sistema por falta de pruebas y entornos.",
+    "quote": "Implementaron pipelines de CI/CD, contenedores y entornos aislados en AWS. Ahora desplegamos varias veces por semana con total tranquilidad.",
+    "outcome": "Despliegues continuos sin ventana de mantenimiento",
+    "role": "Líder de Infraestructura",
+    "industry": "Retail Omnicanal · Estado de México",
+    "serviceSlug": "microservicios-cloud"
+  },
+  {
+    "id": 12,
+    "whyHired": "Nuestro equipo de ventas en campo levantaba pedidos en papel y tardaba hasta 48 horas en pasarlos a planta.",
+    "quote": "La app móvil con modo offline que desarrollaron permitió capturar pedidos aún sin señal y sincronizarlos al instante al recuperar conexión.",
+    "outcome": "Pedidos en planta al instante · Modo offline real",
+    "role": "Director Comercial",
+    "industry": "Agroindustria · Sinaloa",
+    "serviceSlug": "web-movil"
+  },
+  {
+    "id": 13,
+    "whyHired": "Teníamos un sistema legado en donde nadie quería meter mano por miedo a dejar sin servicio a las sucursales.",
+    "quote": "Desacoplaron las piezas críticas paso a paso mediante APIs modernas sin apagar el sistema actual. Fue una transición quirúrgica y transparente.",
+    "outcome": "Migración gradual · 0 horas fuera de línea",
+    "role": "Director de TI",
+    "industry": "Cadena de Clínicas · Guadalajara",
+    "serviceSlug": "transformacion-digital"
+  },
+  {
+    "id": 14,
+    "whyHired": "Validábamos expedientes de proveedores revisando PDFs y portales gubernamentales uno por uno.",
+    "quote": "Automatizaron la recolección, lectura y validación de documentos con reglas claras. Redujimos el alta de proveedores de dos semanas a menos de un día.",
+    "outcome": "Alta de proveedores en <24 horas",
+    "role": "Gerente de Compras y Compliance",
+    "industry": "Sector Energético · CDMX",
+    "serviceSlug": "automatizacion"
+  },
+  {
+    "id": 15,
+    "whyHired": "Requeríamos una funcionalidad puntual de cotización dinámica en nuestro sitio y nadie quería tomarnos un proyecto pequeño.",
+    "quote": "Nos atendieron con la misma seriedad que a un proyecto grande. En dos semanas teníamos el cotizador integrado y enviando prospectos calificados al CRM.",
+    "outcome": "+35% en conversión de solicitudes comerciales",
+    "role": "Directora de Marketing B2B",
+    "industry": "Maquinaria Ligera · León",
+    "serviceSlug": "web-movil"
+  },
+  {
+    "id": 16,
+    "whyHired": "Nuestra base de datos tardaba más de 20 segundos en generar los reportes operativos de cada mañana.",
+    "quote": "Optimizaron consultas, índices y arquitectura de datos en la nube. Hoy los tableros ejecutivos cargan en menos de un segundo sin afectar la transacción.",
+    "outcome": "Reportes 20x más rápidos en producción",
+    "role": "Gerente de Inteligencia de Negocio",
+    "industry": "Operador Logístico 3PL · Tijuana",
+    "serviceSlug": "microservicios-cloud"
+  },
+  {
+    "id": 17,
+    "whyHired": "Necesitábamos conectar tres almacenes externos con nuestro sistema central para evitar vender productos sin stock.",
+    "quote": "Diseñaron una capa de integración limpia y auditable. Dejamos de cancelar pedidos por desfase de inventario y mejoramos nuestra reputación en marketplaces.",
+    "outcome": "-92% en cancelaciones por quiebre de stock",
+    "role": "Head of E-commerce",
+    "industry": "Consumo y Electrónica · CDMX",
+    "serviceSlug": "integraciones"
+  },
+  {
+    "id": 18,
+    "whyHired": "Buscábamos un socio tecnológico que hablara con claridad de costos, tiempos y entregables desde el día uno.",
+    "quote": "Lo que más valoramos fue la transparencia: entregas semanales funcionando, código limpio documentado y cero sorpresas en el presupuesto.",
+    "outcome": "100% de hitos entregados en tiempo y presupuesto",
+    "role": "CEO",
+    "industry": "Proptech · Monterrey",
+    "serviceSlug": "software-a-medida"
+  },
+  {
+    "id": 19,
+    "whyHired": "Perdíamos horas conciliando pagos referenciados de cientos de clientes contra los estados de cuenta bancarios.",
+    "quote": "Con el motor de conciliación automática que implementaron, el 97% de los depósitos se identifican y aplican solos cada mañana antes de abrir oficina.",
+    "outcome": "97% de conciliación bancaria automatizada",
+    "role": "Contralor Financiero",
+    "industry": "Administradora de Inmuebles · Mérida",
+    "serviceSlug": "automatizacion"
+  },
+  {
+    "id": 20,
+    "whyHired": "Queríamos lanzar un nuevo producto digital pero nuestro equipo interno estaba al 100% manteniendo la operación actual.",
+    "quote": "A.X.L armó una célula dedicada que tomó el producto desde la arquitectura hasta el lanzamiento, y luego capacitó a nuestro equipo para operarlo.",
+    "outcome": "Producto en el mercado en 10 semanas · Transferencia total",
+    "role": "VP de Tecnología",
+    "industry": "Educación Corporativa · CDMX",
+    "serviceSlug": "transformacion-digital"
+  }
+]
+

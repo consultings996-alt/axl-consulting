@@ -5,6 +5,7 @@
   <AboutSection />
   <ProjectsSection v-if="hasProjects" />
   <ExploreSection />
+  <ReviewsSection />
   <CtaBand />
 </template>
 
@@ -15,6 +16,7 @@ import SignalsSection from '@/components/home/SignalsSection.vue'
 import AboutSection from '@/components/home/AboutSection.vue'
 import ProjectsSection from '@/components/home/ProjectsSection.vue'
 import ExploreSection from '@/components/home/ExploreSection.vue'
+import ReviewsSection from '@/components/home/ReviewsSection.vue'
 import CtaBand from '@/components/CtaBand.vue'
 import { hasProjects } from '@/data/projects'
 import { useHead } from '@unhead/vue'
