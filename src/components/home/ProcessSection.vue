@@ -2,7 +2,7 @@
   <section id="como-trabajamos" class="process" aria-labelledby="process-title">
     <div class="container">
       <header class="head">
-        <h2 id="process-title">Un proceso claro, de la idea a producción</h2>
+        <component :is="page ? 'h1' : 'h2'" id="process-title" class="title">Un proceso claro, de la idea a producción</component>
         <p>Sabrás en todo momento qué estamos haciendo, cuánto falta y qué sigue.</p>
       </header>
 
@@ -29,6 +29,9 @@
 </template>
 
 <script setup lang="ts">
+// page: la sección se muestra como página propia (su título pasa a ser h1)
+defineProps<{ page?: boolean }>()
+
 import { processSteps, techStack } from '@/data/process'
 </script>
 
@@ -43,7 +46,7 @@ import { processSteps, techStack } from '@/data/process'
   margin-bottom: clamp(48px, 6vw, 72px);
 }
 
-h2 {
+.title {
   font-size: var(--text-3xl);
   color: var(--ink);
 }

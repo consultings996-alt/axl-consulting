@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { quoteLink } from '@/data/sections'
+import { quoteLink } from '@/data/pages'
 import { signals } from '@/data/signals'
 import { serviceBySlug } from '@/data/services'
 import ServiceIcon from '@/components/ServiceIcon.vue'

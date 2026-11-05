@@ -2,7 +2,7 @@
   <section id="servicios" class="services" aria-labelledby="services-title">
     <div class="container">
       <header class="head">
-        <h2 id="services-title">Lo que construimos para tu empresa</h2>
+        <component :is="page ? 'h1' : 'h2'" id="services-title" class="title">Lo que construimos para tu empresa</component>
         <p>Seis formas de usar la tecnología para operar mejor, crecer y escalar.</p>
       </header>
 
@@ -23,7 +23,10 @@
 </template>
 
 <script setup lang="ts">
-import { quoteLink } from '@/data/sections'
+// page: la sección se muestra como página propia (su título pasa a ser h1)
+defineProps<{ page?: boolean }>()
+
+import { quoteLink } from '@/data/pages'
 import services from '@/data/services'
 import ServiceIcon from '@/components/ServiceIcon.vue'
 </script>
@@ -39,7 +42,7 @@ import ServiceIcon from '@/components/ServiceIcon.vue'
   margin-bottom: clamp(48px, 6vw, 72px);
 }
 
-h2 {
+.title {
   font-size: var(--text-3xl);
   color: var(--ink);
 }

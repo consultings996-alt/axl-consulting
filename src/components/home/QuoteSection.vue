@@ -2,7 +2,7 @@
   <section id="cotizar" class="quote on-dark" aria-labelledby="quote-title">
     <div class="container layout">
       <div class="intro">
-        <h2 id="quote-title">Cuéntanos qué necesitas y te enviamos una propuesta</h2>
+        <component :is="page ? 'h1' : 'h2'" id="quote-title" class="title">Cuéntanos qué necesitas y te enviamos una propuesta</component>
         <p class="lead">Dos pasos, menos de dos minutos. Sin compromiso.</p>
       </div>
 
@@ -30,6 +30,9 @@
 </template>
 
 <script setup lang="ts">
+// page: la sección se muestra como página propia (su título pasa a ser h1)
+defineProps<{ page?: boolean }>()
+
 import QuoteForm from '@/components/QuoteForm.vue'
 import { company, social } from '@/data/company'
 import { nextSteps } from '@/data/quote'
@@ -69,7 +72,7 @@ const whatsapp = social('whatsapp')
   grid-area: details;
 }
 
-h2 {
+.title {
   font-size: var(--text-3xl);
   max-width: 20ch;
 }

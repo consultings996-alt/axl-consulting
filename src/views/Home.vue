@@ -1,12 +1,11 @@
 <template>
+  <!-- Inicio corto: el detalle de servicios, proceso, perfiles y cotización vive en su propia página -->
   <HeroSection />
   <SignalsSection />
-  <ServicesSection />
   <AboutSection />
   <ProjectsSection v-if="hasProjects" />
-  <ProcessSection />
-  <ProfilesSection />
-  <QuoteSection />
+  <ExploreSection />
+  <CtaBand />
 </template>
 
 <script setup lang="ts">
@@ -14,11 +13,9 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import HeroSection from '@/components/home/HeroSection.vue'
 import SignalsSection from '@/components/home/SignalsSection.vue'
 import AboutSection from '@/components/home/AboutSection.vue'
-import ServicesSection from '@/components/home/ServicesSection.vue'
 import ProjectsSection from '@/components/home/ProjectsSection.vue'
-import ProcessSection from '@/components/home/ProcessSection.vue'
-import ProfilesSection from '@/components/home/ProfilesSection.vue'
-import QuoteSection from '@/components/home/QuoteSection.vue'
+import ExploreSection from '@/components/home/ExploreSection.vue'
+import CtaBand from '@/components/CtaBand.vue'
 import { hasProjects } from '@/data/projects'
 import { useHead } from '@unhead/vue'
 import { company, socialLinks } from '@/data/company'

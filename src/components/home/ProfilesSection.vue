@@ -1,8 +1,8 @@
 <template>
-  <section :id="homeSections.perfiles.id" class="profiles" aria-labelledby="profiles-title">
+  <section id="perfiles" class="profiles" aria-labelledby="profiles-title">
     <div class="container">
       <header class="head">
-        <h2 id="profiles-title">Arma el equipo que tu proyecto necesita</h2>
+        <component :is="page ? 'h1' : 'h2'" id="profiles-title" class="title">Arma el equipo que tu proyecto necesita</component>
         <p>
           Asignamos especialistas por rol y nivel de experiencia: desde un perfil puntual para reforzar a tu equipo
           hasta un equipo completo.
@@ -43,15 +43,18 @@
 
       <div class="cta">
         <p>¿Un equipo completo o solo una funcionalidad puntual? Cotizamos ambos.</p>
-        <router-link :to="homeSections.cotizar.path" class="btn btn-primary">Cuéntanos qué buscas</router-link>
+        <router-link :to="pages.cotizar" class="btn btn-primary">Cuéntanos qué buscas</router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+// page: la sección se muestra como página propia (su título pasa a ser h1)
+defineProps<{ page?: boolean }>()
+
 import profiles, { levels, type Profile } from '@/data/profiles'
-import { homeSections } from '@/data/sections'
+import { pages } from '@/data/pages'
 
 const availableLabels = (profile: Profile) =>
   levels.filter((l) => profile.levels.includes(l.id)).map((l) => l.label).join(', ')
@@ -68,7 +71,7 @@ const availableLabels = (profile: Profile) =>
   margin-bottom: 40px;
 }
 
-h2 {
+.title {
   font-size: var(--text-3xl);
   color: var(--ink);
 }
