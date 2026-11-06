@@ -27,14 +27,8 @@ const featuredProjects = computed(() => projects.filter(p => p.featured).slice(0
 
 <style scoped>
 .projects-section {
-  padding: 100px 0;
-  background-color: var(--color-white);
-}
-
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 20px;
+  padding: var(--section-space) 0;
+  background-color: #ffffff;
 }
 
 .section-header {
@@ -44,15 +38,14 @@ const featuredProjects = computed(() => projects.filter(p => p.featured).slice(0
 }
 
 h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--color-text);
+  font-size: var(--text-3xl);
+  color: var(--ink);
   margin-bottom: 16px;
 }
 
 .section-header p {
-  color: var(--color-text-muted);
-  font-size: 1.125rem;
+  color: var(--muted);
+  font-size: var(--text-lg);
 }
 
 .projects-grid {
@@ -65,6 +58,4 @@ h2 {
 .actions {
   text-align: center;
 }
-
-
 </style>

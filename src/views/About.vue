@@ -71,21 +71,13 @@
 <script setup lang="ts">
 import { usePageMeta } from '@/composables/usePageMeta'
 import PageHero from '@/components/PageHero.vue'
+import { companyValues as values } from '@/data/about'
 
 usePageMeta({
   title: 'Nosotros',
   description: 'Conoce la historia, misión, visión y valores de A.X.L – Advanced eXponential Logic, consultora de desarrollo de software en México.',
   path: '/about'
 })
-
-const values = [
-  { title: 'Innovación continua', desc: 'Siempre a la vanguardia tecnológica.' },
-  { title: 'Excelencia técnica', desc: 'Ingeniería de alto nivel en cada línea de código.' },
-  { title: 'Compromiso con la calidad', desc: 'Sistemas robustos y confiables.' },
-  { title: 'Transparencia y confianza', desc: 'Relaciones sólidas basadas en la honestidad.' },
-  { title: 'Orientación a resultados', desc: 'Soluciones que generan impacto real.' },
-  { title: 'Escalabilidad', desc: 'Sistemas preparados para el futuro.' }
-]
 </script>
 
 <style scoped>
