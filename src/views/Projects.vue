@@ -1,42 +1,37 @@
 <template>
-  <div class="projects-page">
+  <div>
     <PageHero
       kicker="Proyectos"
       title="Proyectos que hemos construido"
-      lead="Casos reales de software a medida, integraciones y automatización."
+      lead="Algunos de los sistemas que ya están funcionando para nuestros clientes."
     />
 
-    <div class="container content-wrapper">
-      <!-- Filter Tags -->
-      <div class="filters">
-        <button 
-          v-for="category in categories" 
-          :key="category"
-          class="filter-btn"
-          :class="{ active: activeCategory === category }"
-          @click="activeCategory = category"
-        >
-          {{ category }}
-        </button>
-      </div>
+    <section class="projects">
+      <div class="container">
+        <!-- Los filtros solo aparecen cuando hay suficientes proyectos para que sirvan -->
+        <div v-if="showFilters" class="filters" role="group" aria-label="Filtrar por tipo de servicio">
+          <button
+            v-for="category in categories"
+            :key="category"
+            type="button"
+            class="filter"
+            :class="{ active: activeCategory === category }"
+            :aria-pressed="activeCategory === category"
+            @click="activeCategory = category"
+          >
+            {{ category }}
+          </button>
+        </div>
 
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <TransitionGroup name="fade">
-          <ProjectCard
-            v-for="project in filteredProjects"
-            :key="project.id"
-            :project="project"
-            cta-label="Ver detalles"
-          />
-        </TransitionGroup>
+        <ul class="grid">
+          <li v-for="project in filteredProjects" :key="project.id">
+            <ProjectCard :project="project" />
+          </li>
+        </ul>
       </div>
-      
-      <!-- Empty State -->
-      <div v-if="filteredProjects.length === 0" class="empty-state">
-        <p>No se encontraron proyectos en esta categoría.</p>
-      </div>
-    </div>
+    </section>
+
+    <CtaBand title="¿Tienes un proyecto parecido?" />
   </div>
 </template>
 
@@ -44,13 +39,15 @@
 import { ref, computed } from 'vue'
 import { usePageMeta } from '@/composables/usePageMeta'
 import projects from '@/data/projects'
+import { pages } from '@/data/pages'
 import ProjectCard from '@/components/ProjectCard.vue'
 import PageHero from '@/components/PageHero.vue'
+import CtaBand from '@/components/CtaBand.vue'
 
 usePageMeta({
   title: 'Proyectos',
-  description: 'Proyectos de desarrollo de software a medida, plataformas web y móviles, automatización e integraciones realizados por A.X.L.',
-  path: '/projects'
+  description: 'Proyectos terminados de A.X.L: plataformas web y móviles, ERP con punto de venta y tienda en línea, y otros sistemas a la medida.',
+  path: pages.proyectos
 })
 
 const ALL = 'Todos'
@@ -58,6 +55,7 @@ const activeCategory = ref<string>(ALL)
 
 // Las categorías salen de los propios proyectos: si se agrega una nueva, aparece su filtro
 const categories = computed(() => [ALL, ...new Set(projects.map((p) => p.category))])
+const showFilters = computed(() => projects.length > 4 && categories.value.length > 2)
 
 const filteredProjects = computed(() =>
   activeCategory.value === ALL ? projects : projects.filter((p) => p.category === activeCategory.value)
@@ -65,82 +63,42 @@ const filteredProjects = computed(() =>
 </script>
 
 <style scoped>
-.projects-page {
-  background-color: var(--color-surface-alt);
-  min-height: 100vh;
-}
-
-
-
-
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.content-wrapper {
-  padding-top: 60px;
-  padding-bottom: 100px;
+.projects {
+  background: var(--paper);
+  padding: clamp(48px, 7vw, 80px) 0 var(--section-space);
 }
 
 .filters {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 50px;
+  gap: 8px;
+  margin-bottom: 32px;
 }
 
-.filter-btn {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  padding: 10px 24px;
+.filter {
+  padding: 8px 18px;
+  border: 1px solid var(--line);
   border-radius: var(--radius-pill);
+  background: #ffffff;
+  color: var(--muted);
+  font: inherit;
+  font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-text-muted);
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
 }
 
-.filter-btn:hover {
-  background: var(--color-surface-muted);
-  color: var(--color-text-body);
-}
-
-.filter-btn.active {
+.filter.active {
   background: var(--ink);
-  color: #ffffff;
   border-color: var(--ink);
+  color: #ffffff;
 }
 
-.projects-grid {
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40px;
-  color: var(--color-text-soft);
-}
-
-/* Transitions */
-.fade-move,
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: scaleY(0.01) translate(30px, 0);
-}
-
-.fade-leave-active {
-  position: absolute;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
 }
 </style>

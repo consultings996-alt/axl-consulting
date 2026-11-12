@@ -1,128 +1,110 @@
 <template>
   <article class="project-card">
-    <div class="image-wrapper">
-      <img :src="project.image" :alt="project.title" loading="lazy" />
-      <!-- Solo se muestra cuando el proyecto tiene un enlace real -->
-      <div v-if="hasLink" class="overlay">
-        <a :href="project.link" class="view-btn" target="_blank" rel="noopener noreferrer">
-          {{ ctaLabel }}
-        </a>
-      </div>
+    <div class="head">
+      <span class="icon" aria-hidden="true"><ServiceIcon :name="icon" /></span>
+      <span class="category">{{ project.category }}</span>
     </div>
-    <div class="content">
-      <div class="tags">
-        <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
-      </div>
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
-    </div>
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+    <ul v-if="project.tags?.length" class="tags" :aria-label="`Tecnologías de ${project.title}`">
+      <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
+    </ul>
+
+    <a v-if="project.link" :href="project.link" class="link" target="_blank" rel="noopener noreferrer">
+      Ver proyecto <span aria-hidden="true">→</span>
+    </a>
   </article>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import ServiceIcon from '@/components/ServiceIcon.vue'
+import services from '@/data/services'
 import type { Project } from '@/data/projects'
 
-const props = withDefaults(defineProps<{ project: Project; ctaLabel?: string }>(), {
-  ctaLabel: 'Ver proyecto'
-})
+const props = defineProps<{ project: Project }>()
 
-const hasLink = computed(() => Boolean(props.project.link) && props.project.link !== '#')
+// El ícono es el del servicio al que pertenece el proyecto
+const icon = computed(() => services.find((s) => s.shortTitle === props.project.category)?.icon ?? 'code')
 </script>
 
 <style scoped>
 .project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: border-color 0.2s ease;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   border-color: var(--signal);
+  box-shadow: 0 12px 30px -20px rgba(11, 101, 163, 0.5);
 }
 
-.image-wrapper {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .image-wrapper img {
-  transform: scale(1.05);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 26, 47, 0.7);
+.head {
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.project-card:hover .overlay,
-.project-card:focus-within .overlay {
-  opacity: 1;
+.icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md, 12px);
+  background: var(--paper);
+  color: var(--signal);
 }
 
-.view-btn {
-  background: var(--color-white);
-  color: var(--color-text-strong);
-  padding: 12px 24px;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  text-decoration: none;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .view-btn,
-.project-card:focus-within .view-btn {
-  transform: translateY(0);
-}
-
-.content {
-  padding: 30px;
-}
-
-.tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  background: var(--color-surface-muted);
-  color: var(--color-text-secondary);
-  padding: 4px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+.category {
+  color: var(--signal);
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
 h3 {
+  margin-bottom: 10px;
   font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 12px;
+  color: var(--ink);
 }
 
 p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
   margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.tags {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags li {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+
+.link {
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--signal);
+  font-weight: 600;
+  text-decoration: none;
 }
 </style>

@@ -24,12 +24,13 @@ const routes: RouteRecordRaw[] = [
     { path: pages.cotizar, name: "Quote", component: QuotePage },
     { path: "/about", name: "About", component: About },
     {
-        path: "/projects",
+        path: pages.proyectos,
         name: "Projects",
         component: Projects,
         // Sin proyectos publicados, la página no se muestra
         beforeEnter: () => (hasProjects ? true : pages.comoTrabajamos)
     },
+    { path: "/projects", redirect: pages.proyectos },
     // Contacto y Cotizar eran la misma página (formulario + datos de contacto)
     { path: "/contact", redirect: pages.cotizar },
     { path: "/insights", name: "Insights", component: Insights },
@@ -49,7 +50,7 @@ export const prerenderRoutes: { path: string; sitemap: boolean }[] = [
     { path: pages.perfiles, sitemap: true },
     { path: pages.cotizar, sitemap: true },
     { path: "/about", sitemap: true },
-    ...(hasProjects ? [{ path: "/projects", sitemap: true }] : []),
+    ...(hasProjects ? [{ path: pages.proyectos, sitemap: true }] : []),
     { path: "/insights", sitemap: true },
     { path: "/careers", sitemap: true },
     { path: "/privacy", sitemap: false },

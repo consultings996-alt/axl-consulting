@@ -41,15 +41,15 @@ for (const { path: route } of prerenderRoutes) {
 await fs.writeFile(path.join(dist, '404.html'), await render('/pagina-no-encontrada', template))
 console.log('  prerender  404          → dist/404.html')
 
-// Mientras no haya proyectos publicados, /projects redirige a "Cómo trabajamos"
+// Mientras no haya proyectos publicados, /proyectos redirige a "Cómo trabajamos"
 if (!hasProjects) {
   await fs.writeFile(
-    path.join(dist, 'projects.html'),
+    path.join(dist, 'proyectos.html'),
     `<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="robots" content="noindex">` +
       `<meta http-equiv="refresh" content="0; url=/como-trabajamos"><link rel="canonical" href="${SITE_URL}/">` +
       `<title>A.X.L</title></head><body><a href="/como-trabajamos">Ir a A.X.L</a></body></html>\n`
   )
-  console.log('  redirect   /projects    → /como-trabajamos (sin proyectos aún)')
+  console.log('  redirect   /proyectos   → /como-trabajamos (sin proyectos aún)')
 }
 
 const today = new Date().toISOString().slice(0, 10)

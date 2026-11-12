@@ -99,6 +99,13 @@
           <a :href="`mailto:${company.email}`">{{ company.email }}</a>.
         </p>
 
+        <!-- Aviso simplificado: la ley pide que el aviso esté disponible al recabar los datos.
+             Abre en otra pestaña para no perder lo que ya se escribió en el formulario. -->
+        <p class="privacy-note">
+          Usamos tus datos solo para responder tu solicitud y enviarte una propuesta. Al enviar, aceptas nuestro
+          <a href="/privacy" target="_blank" rel="noopener">Aviso de privacidad</a>.
+        </p>
+
         <div class="actions">
           <button type="button" class="btn btn-ghost" @click="step = 1">Regresar</button>
           <button type="submit" class="btn btn-ice" :disabled="status === 'sending'">
@@ -378,6 +385,19 @@ input[aria-invalid='true'] {
 
 .submit-error a {
   color: inherit;
+}
+
+.privacy-note {
+  margin: 0;
+  color: var(--muted-dark);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.privacy-note a {
+  color: var(--ice);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .actions {

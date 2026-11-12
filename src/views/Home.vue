@@ -3,7 +3,6 @@
   <HeroSection />
   <SignalsSection />
   <AboutSection />
-  <ProjectsSection v-if="hasProjects" />
   <ExploreSection />
   <CtaBand />
 </template>
@@ -13,10 +12,8 @@ import { usePageMeta } from '@/composables/usePageMeta'
 import HeroSection from '@/components/home/HeroSection.vue'
 import SignalsSection from '@/components/home/SignalsSection.vue'
 import AboutSection from '@/components/home/AboutSection.vue'
-import ProjectsSection from '@/components/home/ProjectsSection.vue'
 import ExploreSection from '@/components/home/ExploreSection.vue'
 import CtaBand from '@/components/CtaBand.vue'
-import { hasProjects } from '@/data/projects'
 import { useHead } from '@unhead/vue'
 import { company, socialLinks } from '@/data/company'
 import services from '@/data/services'

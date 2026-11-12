@@ -30,6 +30,30 @@ defineProps<{ title: string; updated?: string }>()
   line-height: 1.75;
 }
 
+.prose :deep(h2) {
+  margin: 2em 0 0.6em;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.prose :deep(h2:first-child) {
+  margin-top: 0;
+}
+
+.prose :deep(strong) {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Datos por llenar: resaltados para que no se publiquen sin darse cuenta */
+.prose :deep(mark.pending) {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #fff1c2;
+  color: #6b4e00;
+  font-weight: 600;
+}
+
 .prose :deep(p) {
   margin: 0 0 1.1em;
 }

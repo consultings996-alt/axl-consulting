@@ -1,4 +1,4 @@
-// Usa el nombre corto de uno de los servicios (data/services.ts) como categoría
+// La categoría es el nombre corto de uno de los servicios (data/services.ts): define el ícono de la tarjeta
 export type ProjectCategory =
     | 'Software a medida'
     | 'Microservicios y cloud'
@@ -8,36 +8,38 @@ export type ProjectCategory =
     | 'Transformación digital'
 
 export interface Project {
-    id: number;
+    id: string;
     category: ProjectCategory;
     title: string;
+    /** Una o dos frases: qué problema resolvió y qué resultado dio */
     description: string;
-    image: string;
-    tags: string[];
-    link: string;
-    featured: boolean;
+    /** Tecnologías usadas (opcional) */
+    tags?: string[];
+    /** Enlace público al proyecto (opcional) */
+    link?: string;
 }
 
 /**
- * Proyectos que se muestran en el sitio.
- *
- * Mientras la lista esté vacía, la sección de proyectos del inicio, la opción
- * "Proyectos" del menú y del footer, y la página /projects se ocultan solas.
- * Al agregar el primero, todo vuelve a aparecer.
- *
- * Ejemplo:
- * {
- *     id: 1,
- *     category: 'Plataformas web y móviles',
- *     title: 'Portal de clientes para aseguradora',
- *     description: 'Qué problema resolvió y qué resultado dio, en una o dos frases.',
- *     image: importada desde '@/assets/images/projects/...',
- *     tags: ['Vue 3', 'Spring Boot', 'PostgreSQL'],
- *     link: 'https://...',   // o '' si no es público
- *     featured: true
- * }
+ * Proyectos terminados que se muestran en /proyectos.
+ * Mientras la lista esté vacía, la opción "Proyectos" del menú y la página se ocultan solas.
+ * Para agregar uno, copia un bloque y cambia los textos.
  */
-const projects: Project[] = [];
+const projects: Project[] = [
+    {
+        id: 'mudanzas',
+        category: 'Plataformas web y móviles',
+        title: 'Plataforma para empresa de mudanzas',
+        description:
+            'Calcula la ruta del punto A al punto B, registra los kilómetros y comparte la ubicación en tiempo real. Con eso la empresa arma el presupuesto de cada mudanza en minutos, sin cálculos manuales.'
+    },
+    {
+        id: 'erp-pos',
+        category: 'Software a medida',
+        title: 'ERP con punto de venta y tienda en línea',
+        description:
+            'Un solo sistema para vender en mostrador, en tienda en línea y en el sitio web. El inventario y las ventas de todos los canales quedan en el mismo lugar.'
+    }
+];
 
 export const hasProjects = projects.length > 0;
 

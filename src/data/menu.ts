@@ -9,12 +9,13 @@ export interface MenuItem {
 
 const menu: MenuItem[] = [
   { label: 'Servicios', link: pages.servicios },
-  ...(hasProjects ? [{ label: 'Proyectos', link: '/projects' }] : []),
   { label: 'Cómo trabajamos', link: pages.comoTrabajamos },
   { label: 'Perfiles', link: pages.perfiles },
   { label: 'Nosotros', link: '/about' },
   { label: 'Insights', link: '/insights' },
-  { label: 'Carreras', link: '/careers' }
+  { label: 'Carreras', link: '/careers' },
+  // Aparece solo cuando hay proyectos en data/projects.ts
+  ...(hasProjects ? [{ label: 'Proyectos', link: pages.proyectos }] : [])
 ]
 
 export const contactLink: MenuItem = { label: 'Cotizar proyecto', link: pages.cotizar }

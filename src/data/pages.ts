@@ -5,6 +5,7 @@ export const pages = {
   servicios: '/servicios',
   comoTrabajamos: '/como-trabajamos',
   perfiles: '/perfiles',
+  proyectos: '/proyectos',
   cotizar: '/cotizar'
 } as const
 
